@@ -35,6 +35,11 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/2', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to Project with Nodejs Express and MongoDB2',
+  });
+});
 app.listen(port, () => {
   console.log(`Our server is running on port ${port}`);
 });
