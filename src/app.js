@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import logger from 'morgan';
 
-//const conectionString = 'mongodb+srv://tnnshop:82ISxqEstnoh6tZc@cluster0.pam8z.gcp.mongodb.net/test?retryWrites=true&w=majority';
+const conectionString = 'mongodb+srv://tnnshop:82ISxqEstnoh6tZc@cluster0.pam8z.gcp.mongodb.net/test?retryWrites=true&w=majority';
 var port = Number(process.env.PORT || 8888);
 // set up dependencies
 const app = express();
@@ -17,16 +17,16 @@ app.use(logger('dev'));
 import mainRoutes from './routes/main';
 
 // set up mongoose
-// mongoose.connect(conectionString, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(()=> {
-//     console.log('Database connected');
-//   })
-//   .catch((error)=> {
-//     console.log(error);
-//   });
+mongoose.connect(conectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(()=> {
+    console.log('Database connected');
+  })
+  .catch((error)=> {
+    console.log(error);
+  });
 
  // set up route
-//app.use('/api/', mainRoutes);
+app.use('/api/', mainRoutes);
 
 // set up route
 app.get('/', (req, res) => {
